@@ -28,7 +28,7 @@
                         <a class="nav-link" href="{{ path('product_index') }}">Produits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="{{ path('contact') }}">Contact</a>
                     </li>
                 </ul>
 
@@ -49,7 +49,7 @@
 
                 <ul class="navbar-nav pl-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Connexion</a>
+                        <a class="nav-link" href="{{path('security')}}">Connexion</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Inscription</a>
@@ -59,12 +59,7 @@
         </div>
     </nav>
 
-    <section class="jumbotron text-center">
-        <div class="container">
-            <h1 class="jumbotron-heading">Ecommerce</h1>
-            <p class="lead text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum delectus ad quae cumque voluptates dolorum, neque eveniet, placeat obcaecati magnam vel fugit nulla autem, mollitia consequuntur praesentium sit? Veniam, facere.</p>
-        </div>
-    </section>
+
         {% block body %}{% endblock %}
         {% block footer %}
             <footer class="text-light bg-dark">

@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,9 +20,18 @@ class ProductType extends AbstractType
             ->add('price')
             ->add('favorited')
             ->add('createdAt')
-            ->add('colors')
-            ->add('image')
+            ->add('colors', ChoiceType::class, ['choices' =>
+                ['red'=>'red','green'=>'green','blue'=>'blue','orange'=>'orange','yellow'=>'yellow']
+                ,'expanded' => true,'multiple' => true,])
+            ->add('image', FileType::class, [
+                'mapped' => false,
+                'attr' => [
+                    'placeholder' => 'Choisir une image',
+                ]
+
+            ])
             ->add('discount')
+            ->add('category')
         ;
     }
 

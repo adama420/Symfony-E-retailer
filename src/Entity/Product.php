@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -88,6 +89,20 @@ class Product
         $this->name = $name;
 
         return $this;
+    }
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function initializeSlug()
+    {
+        dump($this->slug);
+        if(empty($this->slug)){
+            $slug = new Slugify();
+            $this->slug = $slug->slugify($this->name);
+        }
+
+
     }
 
     public function getSlug(): ?string

@@ -59,7 +59,7 @@ class AppFixtures extends Fixture
             $manager->persist($category);
             $categorys[] = $category;
         }
-
+            $colors=['red','green','blue','orange','yellow'];
         //on génére les PRODUCTS
         for($i = 1; $i<=100; $i++){
             $product = new Product();
@@ -69,7 +69,7 @@ class AppFixtures extends Fixture
             $product->setSlug($this->slugger->slug($product->getName())->lower());
             $product->setFavorited($faker->boolean);
             $product->setCreatedAt($faker->dateTime($max = 'now', $timezone = null));
-            $product->setColors($faker->randomElements($array = array ('red','green','blue','orange','yellow'), $count = 2));
+            $product->setColors($faker->randomElements($colors, rand(0, count($colors))));
             $product->setDiscount(rand(1,9)*10);
             $product->setUser($users[rand(0, 9)]);
             $product->setCategory($categorys[rand(0,4)]);

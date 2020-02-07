@@ -16,9 +16,11 @@ security:
         main:
             anonymous: lazy
 
+            provider: in_database
+
             form_login:
-                login_path: login
-                check_path: login
+                login_path: security
+                check_path: security
             logout: true
 
             # activate different ways to authenticate

@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello SecurityController!{% endblock %}
+{% block title %}
+    Se connecter - {{ parent() }}
+{% endblock %}
 
 {% block body %}
     <h1 class="mt-4">Se connecter</h1>
@@ -14,7 +16,7 @@
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="text"
+            <input type="email"
                    value="{{ last_username }}"
                    name="_username"
                    id="email"
